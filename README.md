@@ -9,7 +9,6 @@ This repository contains a data analysis case study on Bellabeat, a high-tech ma
 * **Data Source:** Fitbit Fitness Tracker Data (Kaggle public dataset).
 * **Storage & Environment:** Data uploaded and staged inside **Google BigQuery**.
 * **Ingestion Notes:** Resolved raw CSV timestamp formatting conflicts by configuring BigQuery's advanced ingestion settings (allowing an error threshold to bypass trailing file glitches while preserving core data integrity).
-* Changed timestamp settings to align with BigQuery standards.
 ## Processing/Cleaning 
 * Rows showing 0 total steps paired with 1440 sedentary minutes were flagged as 'device non-wear days' and excluded from behavioral trend calculations to avoid skewing the true active baseline.
 * The sleep_day and hourly_steps tables stored tracking IDs as text strings, which conflicted with the 64-bit integers (INT64) in daily_activity. Data cleaning was executed via runtime SQL CAST functions to homogenize schemas without altering the structural raw data.
@@ -26,5 +25,15 @@ This repository contains a data analysis case study on Bellabeat, a high-tech ma
 * Results of third query: 1. Highly Sedentary (>12 hrs)	204	total logged days 367.8 average minutes asleep	6.1 average hours asleep	31.5 average minutes awake in bed.
 2. Moderately Sedentary (8-12 hrs) 182 total logged days 	466.5 average minutes asleep	7.8 average hours asleep	47.1 average minutes awake in bed.
 3. Active / Low Sedentary (<8 hrs)	27 total logged days	493.0 average minutes asleep	8.2 average hours asleep    43.4 average minutes awake in bed.
+* Ran fourth query to show daily activity such as average daily steps and time spent at different activity tiers.
+* Results of fourth query (and relation to Global Daily Activity Baselines):
+-- Average Daily Steps: 7,638 steps (Below 10k target)
+-- Average Sedentary Minutes: 991.2 mins (~16.5 hours of inactivity)
+-- Average Very Active Minutes: 21.2 mins
+-- Average Fairly Active Minutes: 13.6 mins
+-- Average Lightly Active Minutes: 192.8 mins
+* Ran fifth query to see how many users manually or automatically logged entries for weight.
+* Results for fifth query: -- Total Participation: 8 out of 33 users (75%+ drop-off in tracking compliance).
+-- Split: 5 users manually logged 41 entries. 3 users automatically synced 26 entries.
 Initial commit: Add project overview and staging notes.
 Additional commits: Add sections for processing and analysis.
