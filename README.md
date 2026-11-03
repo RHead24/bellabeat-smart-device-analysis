@@ -57,6 +57,7 @@ Based on the statistical analysis of the FitBit user cohorts, three distinct con
 ## Methodology for Presentation
 * Utilized PowerPoint for creation of slide show presentation.
 * Used a combination of Tableau and Microsoft Excel to generate graphs based on datasets used in analysis.
-* Sourced Bellabeat logo from seeklogo.com
+* Sourced Bellabeat logo from seeklogo.com and other images from pexels.com
+
 Initial commit: Add project overview and staging notes.
 Additional commits: Add sections for processing and analysis. Add insights and strategic recommendations. 
