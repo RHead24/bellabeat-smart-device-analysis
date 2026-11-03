@@ -8,7 +8,7 @@ This repository contains a data analysis case study on Bellabeat, a high-tech ma
 ## Data Preparation & Staging
 * **Data Source:** Fitbit Fitness Tracker Data (Kaggle public dataset).
 * **Storage & Environment:** Data uploaded and staged inside **Google BigQuery**.
-* **Ingestion Notes:** Resolved raw CSV timestamp formatting conflicts by configuring BigQuery's advanced ingestion settings (allowing an error threshold to bypass trailing file glitches while preserving core data integrity).
+* **Ingestion Notes:** Resolved raw CSV timestamp formatting conflicts by configuring BigQuery's advanced ingestion settings (allowing an error threshold to bypass trailing file glitches while preserving core data integrity). Also utilized Google drive and opening/conversion of CSV file for weight log in Google Sheets to adjust data types to allow upload to BigQuery.
 ## Processing/Cleaning 
 * Rows showing 0 total steps paired with 1440 sedentary minutes were flagged as 'device non-wear days' and excluded from behavioral trend calculations to avoid skewing the true active baseline.
 * The sleep_day and hourly_steps tables stored tracking IDs as text strings, which conflicted with the 64-bit integers (INT64) in daily_activity. Data cleaning was executed via runtime SQL CAST functions to homogenize schemas without altering the structural raw data.
@@ -54,6 +54,9 @@ Based on the statistical analysis of the FitBit user cohorts, three distinct con
 ### 4. Peak Activity Windows
 *   **The Insight:** User step patterns follow a highly rigid corporate/waking routine, with the absolute **highest activity peak occurring at 6:00 PM (Hour 18)**, followed closely by 5:00 PM and 7:00 PM. A secondary mini-peak occurs at 12:00 PM (Lunch break).
 *   **Bellabeat Action Plan:** Optimize the app's notification engine to align with these natural behavioral spikes. Schedule motivational pushes at **11:45 AM** (prompting a midday step reset) and **4:45 PM** (encouraging users to close out their daily activity targets as they transition out of the workday).
-
+## Methodology for Presentation
+* Utilized PowerPoint for creation of slide show presentation.
+* Used a combination of Tableau and Microsoft Excel to generate graphs based on datasets used in analysis.
+* Sourced Bellabeat logo from seeklogo.com
 Initial commit: Add project overview and staging notes.
 Additional commits: Add sections for processing and analysis. Add insights and strategic recommendations. 
